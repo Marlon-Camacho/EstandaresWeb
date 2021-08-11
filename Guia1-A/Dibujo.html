@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <style>
+        .organizar{
+            display: grid;
+            grid-template-columns: repeat(2, 2fr);
+            align-items: center;
+            margin: 100px;
+        }
+    </style>
+<div class="organizar">
+    <canvas id="myCanvas" width="200" height="100"
+    style="border:1px solid #c3c3c3;">
+    Your browser does not support the canvas element.
+    </canvas>
+
+    <canvas id="myCanvasC" width="200" height="100"
+    style="border:1px solid #c3c3c3;">
+    Your browser does not support the canvas element.
+    </canvas>
+
+    <canvas id="myCanvasG" width="200" height="100"
+    style="border:1px solid #c3c3c3; margin-top: 50px;">
+    Your browser does not support the canvas element.
+    </canvas>
+
+    <canvas id="myCanvasGI" width="200" height="100"
+    style="border:1px solid #c3c3c3; margin-top: 50px;">
+    Your browser does not support the canvas element.
+    </canvas>
+
+</div>
+
+<script>
+//
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+ctx.moveTo(0, 0);
+ctx.lineTo(200, 100);
+ctx.stroke();
+
+//
+var canvasC = document.getElementById("myCanvasC");
+var ctxC = canvasC.getContext("2d");
+ctxC.beginPath();
+ctxC.arc(95, 50, 40, 0, 2 * Math.PI);
+ctxC.stroke();
+
+//
+var c = document.getElementById("myCanvasG");
+var ctxG = c.getContext("2d");
+
+// Create gradient
+var grd = ctxG.createLinearGradient(0, 0, 200, 0);
+grd.addColorStop(0, "red");
+grd.addColorStop(1, "white");
+
+// Fill with gradient
+ctxG.fillStyle = grd;
+ctxG.fillRect(10, 10, 150, 80);
+
+//
+var cGI = document.getElementById("myCanvasGI");
+var ctxGI = cGI.getContext("2d");
+
+// Create gradient
+var grdGI = ctxGI.createRadialGradient(75, 50, 5, 90, 60, 100);
+grdGI.addColorStop(0, "red");
+grdGI.addColorStop(1, "white");
+
+// Fill with gradient
+ctxGI.fillStyle = grdGI;
+ctxGI.fillRect(10, 10, 150, 80);
+</script>
+
+
+
+
+</body>
+</html>
